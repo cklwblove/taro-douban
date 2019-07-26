@@ -1,0 +1,43 @@
+{
+	"miniprogramRoot": "dist/",
+	"projectname": "taro-douban",
+	"description": "taro 重构 wedouban",
+	"appid": "wxd0834a3b165e6871",
+	"setting": {
+		"urlCheck": true,
+		"es6": false,
+		"postcss": false,
+		"minified": false
+	},
+	"compileType": "miniprogram",
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"list": []
+		},
+		"miniprogram": {
+			"current": 1,
+			"list": [
+				{
+					"id": -1,
+					"name": "pages/order/index",
+					"pathName": "pages/order/index",
+					"scene": null
+				}
+			]
+		}
+	}
+}
