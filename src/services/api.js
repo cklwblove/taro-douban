@@ -54,7 +54,7 @@ export default {
     let option = {url, data};
     return this.baseOptions(option);
   },
-  post: function (url, data, contentType) {
+  post (url, data, contentType) {
     let params = {url, data, contentType};
     return this.baseOptions(params, 'POST');
   },

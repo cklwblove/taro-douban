@@ -1,8 +1,7 @@
 import Taro, { Component } from '@tarojs/taro';
-import { Image, Navigator, Text, View } from '@tarojs/components';
+import { View } from '@tarojs/components';
 import MovieList from '@/components/MovieList';
 import { GLOBAL_CONFIG } from '@/constants/globalConfig';
-import { getImages } from '@/utils/index';
 import api from '@/services/api';
 
 import './style.less';
@@ -71,10 +70,10 @@ export default class List extends Component {
             return v;
           }
         });
-        this.setState({
-          movies: movies.concat(list),
-          page: page + 1
-        });
+        this.setState((prevState) => ({
+          movies: prevState.movies.concat(list),
+          page: prevState.page + 1
+        }));
       } else {
         this.setState({
           hasMore: false
