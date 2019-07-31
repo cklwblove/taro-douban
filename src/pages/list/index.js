@@ -1,10 +1,11 @@
 import Taro, { Component } from '@tarojs/taro';
 import { Image, Navigator, Text, View } from '@tarojs/components';
+import MovieList from '@/components/MovieList';
 import { GLOBAL_CONFIG } from '@/constants/globalConfig';
 import { getImages } from '@/utils/index';
 import api from '@/services/api';
 
-import './index.less';
+import './style.less';
 
 export default class List extends Component {
 
@@ -96,34 +97,8 @@ export default class List extends Component {
     const {movies} = this.state;
     if (!movies.length) return <View />;
     return (
-      <View className='movie-list-container'>
-        {
-          movies.map((movie) => {
-            return (
-              <Navigator url={'/pages/item/index?id=' + movie.id} key={movie.id}>
-                <View className='item'>
-                  <Image
-                    className='poster'
-                    src={getImages(movie.images.small)}
-                  />
-                  <View className='meta'>
-                    <Text className='title'>{movie.title}</Text>
-                    <Text className='sub-title'>{movie.original_title} ({movie.year})</Text>
-                    <View className='artists'>导演：
-                      {
-                        movie.directors.length > 0 &&
-                        movie.directors.map((item) => item.name + '\t')
-                      }
-                    </View>
-                  </View>
-                  <View className='rating'>
-                    <Text className='rating-text'>{movie.rating.average}</Text>
-                  </View>
-                </View>
-              </Navigator>
-            );
-          })
-        }
+      <View className='movie-list-wrap'>
+        <MovieList movies={movies}/>
       </View>
     );
   }

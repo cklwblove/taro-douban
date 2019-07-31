@@ -5,7 +5,7 @@ import { get as getGlobalData } from '@/utils/global_data';
 import { getImages } from '@/utils/index';
 import api from '@/services/api';
 
-import './index.less';
+import './style.less';
 
 export default class Index extends Component {
 

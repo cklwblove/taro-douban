@@ -1,32 +1,29 @@
 import Taro, { Component } from '@tarojs/taro';
 import { Navigator, Image, View, Text } from '@tarojs/components';
 import PropTypes from 'prop-types';
+import { getImages } from '@/utils/index';
 
-import './index.less';
+import './style.less';
 
 export default class MovieList extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      movies: []
+      movies: [],
     };
   }
 
   static propTypes = {
-    hasMore: PropTypes.bool
+    movies: PropTypes.array
   };
 
   static defaultProps = {
-    hasMore: false
+    movies: [],
   };
 
-  componentDidMount() {
-  }
-
   render() {
-    const {movies} = this.state;
-    if (!movies.length) return <View />;
+    const {movies} = this.props;
     return (
       <View className='movie-list-container'>
         {
@@ -36,7 +33,7 @@ export default class MovieList extends Component {
                 <View className='item'>
                   <Image
                     className='poster'
-                    src={movie.images.small}
+                    src={getImages(movie.images.small)}
                   />
                   <View className='meta'>
                     <Text className='title'>{movie.title}</Text>
@@ -49,12 +46,11 @@ export default class MovieList extends Component {
                     </View>
                   </View>
                   <View className='rating'>
-                    <Text>{movie.rating.average}</Text>
+                    <Text className='rating-text'>{movie.rating.average}</Text>
                   </View>
                 </View>
               </Navigator>
             );
-
           })
         }
       </View>
